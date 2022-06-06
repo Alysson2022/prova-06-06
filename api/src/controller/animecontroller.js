@@ -9,7 +9,16 @@ const server = Router();
 
 server.get('/animes', (req, resp) => {
     try{
-        
+        const resposta = req.params.resposta;
+
+        resp.send({
+            resultado: resposta
+        })
+    }
+    catch(err) {
+        resp.status(401).send({
+            erro: err.message
+        })
     }
 })
 
@@ -29,3 +38,5 @@ server.post('/animes/postar', async (req, resp) => {
         })
     }
 })
+
+export default server;
