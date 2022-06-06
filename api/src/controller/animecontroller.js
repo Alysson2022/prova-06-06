@@ -9,7 +9,7 @@ const server = Router();
 
 server.get('/animes', (req, resp) => {
     try{
-        const resposta = req.params.resposta;
+        const resposta = req.resposta;
 
         resp.send({
             resultado: resposta
