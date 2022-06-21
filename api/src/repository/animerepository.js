@@ -1,12 +1,19 @@
-
+import { con } from './connection.js'
 
 export async function Anime(nome) {
     const comando = 
-    `select     ID_ANIME        id,
-                NM_ANIME        nome,
-        from    TB_ANIME
-        where   NM_ANIME        = ?`
+    `select * from tb_animes`
     
-    const [linhas] = await con.query(comando[nome]);
-    return linhas[0];    
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
+
+export async function postarAnime(nome) {
+    const comando = 
+    `insert INTO TB_ANIMES (NM_ANIME)
+    values (?)`
+
+    const [resposta] = await con.query(comando[nome.nome]);
+    nome.id = resposta.insertId;
+    return nome;
 }
