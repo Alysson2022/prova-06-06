@@ -1,6 +1,6 @@
 import { con } from './connection.js'
 
-export async function Anime(nome) {
+export async function Anime() {
     const comando = 
     `select * from tb_animes`
     
@@ -11,7 +11,7 @@ export async function Anime(nome) {
 export async function postarAnime(nome) {
     const comando = 
     `insert INTO TB_ANIMES (NM_ANIME)
-    values (?)`
+                    values (?)`
 
     const [resposta] = await con.query(comando[nome.nome]);
     nome.id = resposta.insertId;

@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import animeRepository from './src/controller/animecontroller.js'
+import animeRepository from './controller/animecontroller.js'
 
 
 import express from 'express'
